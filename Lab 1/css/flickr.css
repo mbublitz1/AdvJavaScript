@@ -1,0 +1,39 @@
+
+html {font-size: 62.5%;
+		box-sizing: border-box;
+		}
+
+*, *:before, *:after { box-sizing: inherit; }
+
+body {font-size: 16px; font-size: 1.6rem; } /* = 16px */
+
+header, main, footer {}
+
+/*  Typograhical Scales  */
+h1 {  }
+h2 {  }
+h3 {  }
+
+/* Grids three column */
+[class*='col-'] {
+    float: left;
+    display: block;
+    margin: 0 4.255% 4.255% 0;
+    padding: 4.255%;
+}
+
+.col-3-3{width: 100%;}
+.col-2-3 {width: 65.2482%;}
+.col-1-3 {width: 30.4964%;}
+
+[class*='col']:last-of-type { margin-right: 0; }
+.gridfix {margin-right: 0;}
+
+header{}
+nav{}
+main{}
+footer{}
+
+
+a:link a:visited { color: #999999; }
+a:hover a:active { color: #000000; }
