@@ -3,3 +3,6 @@
 Lab 1/.editorconfig
 .idea/workspace.xml
 .idea/workspace.xml
+*.xml
+Lab 1/.idea/workspace.xml
+.idea/workspace.xml

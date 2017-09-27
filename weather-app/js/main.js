@@ -23,6 +23,8 @@
         var $sunSet = $el.find('.details>.sunset');
         //TODO: complete variables for the other pieces of data
         //Display the data
+        $el.removeClass('hidden');
+
         $loc.text(data.location.city + ', ' + data.location.region);
         $weatherdate.text(data.lastBuildDate);
         $condition.text(data.item.condition.text);

@@ -21,19 +21,22 @@
         </nav>
 
         <main>
-            <form class="Search" action="#" method="post" name="search form" id="searchform">
+            <form class="search">
                 <fieldset class="col-3-3 clearfix">
                     <h1>Search</h1>
                     <ul class="col-2-4 clearfix">
                         <li class="col-1-4">
                             <label for="searchText"> Search: </label>
-                            <input type="text" id="searchText" name="searchText" />
+                            <input type="text" id="searchText" name="searchText"/>
                         </li>
                         <li class="col-1-4">
-                            <input type="submit" value="Search"/>
+                            <label for="NumPages"> Search: </label>
+                            <input type="text" id="numPages" name="numPages" />
+                        </li>
+                        <li class="col-1-4">
+                            <button type="submit">Search</button>
                         </li>
                     </ul>
-
                 </fieldset>
             </form>
         </main>
