@@ -1,13 +1,17 @@
 
 html {font-size: 62.5%;
 		box-sizing: border-box;
+    line-height: 1.4%;
 		}
 
 *, *:before, *:after { box-sizing: inherit; }
 
 body {font-size: 16px; font-size: 1.6rem; } /* = 16px */
 
-header, main, footer {}
+header, main, footer {
+    width: 100%;
+    margin: 0 0;
+}
 
 /*  Typograhical Scales  */
 h1 {  }
@@ -18,8 +22,9 @@ h3 {  }
 [class*='col-'] {
     float: left;
     display: block;
-    margin: 0 4.255% 4.255% 0;
-    padding: 4.255%;
+    margin: 0 4.255% 0 0;
+    padding-right: 4.255%;
+    padding-left: 4.255%;
 }
 
 .col-3-3{width: 100%;}
@@ -37,3 +42,12 @@ footer{}
 
 a:link a:visited { color: #999999; }
 a:hover a:active { color: #000000; }
+
+.pagination {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+.pagination>img {
+    height: 479px;
+}

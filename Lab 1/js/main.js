@@ -1,34 +1,91 @@
+/**
+ * Lab 1 application utilizing the Flickr API and JSON to display images
+ *
+ * @param {object} $ - jQuery dependency
+ */
 (function($){
-    var count = 0;
+    /**
+     * Declare variables to be used in appliction
+     */
+    var count = 0, $perPage = 0, $pageCount = 0, $searchText;
     $('.search').on('submit', function (e)
     {
-        console.log('in submit');
-        var searchText = $(e.target).find('[name=searchText]').val(),
-        pageNo = $(e.target).find('[name=numPages]').val(),
-        query = 'flickr.photos.search&api_key=86b74687bf9d2559bfdf7a9d46666c79&text=' + searchText + '&page=' + pageNo + '&format=json&nojsoncallback=1';
-        console.log('https://api.flickr.com/services/rest/?method=' + query);
-         $.getJSON('https://api.flickr.com/services/rest/?method=' + query, function(data)
-         {
-             console.log(data);
-             for(count=0; count < data.photos.photo.length; count++) {
+
+        //Get the search text and number of pages
+        $searchText = $(e.target).find('[name=searchText]').val();
+        $perPage = $(e.target).find('[name=perPage] option:selected').text();
+
+        /**
+         * Call to function to search and display photos
+         * @param {Object} $searchText - The jQuery reference to the searchText DOM element.
+         * @param {Object} $perPage - The jQuery reference to the $perPage DOM element.
+         * @param {Object} 1 - Default value for page number.
+         */
+         RenderPhoto($searchText, $perPage, 1)
+
+        e.preventDefault();
+    });
+
+    /**
+     * Displays photos returned from search.
+     * @param {Object} $searchText - The jQuery reference to the searchText DOM element.
+     * @param {Object} $perPage - The jQuery reference to the $perPage DOM element.
+     * @param {Object} $pageNumber - Value for page number.
+     */
+    function RenderPhoto($searchText, $perPage, $pageNumber)
+    {
+        var $query;
+        //Check if search text is blank, if blank query recent photos otherwise query for search text
+        if($searchText ==='')
+        {
+            $query = 'flickr.photos.getRecent&api_key=86b74687bf9d2559bfdf7a9d46666c79&per_page=' + $perPage + '&Page=' + $pageNumber + '&format=json&nojsoncallback=1';
+        }
+        else {
+            $query = 'flickr.photos.search&api_key=86b74687bf9d2559bfdf7a9d46666c79&text=' + $searchText + '&per_page=' + $perPage + '&Page=' + $pageNumber + '&format=json&nojsoncallback=1';
+        }
+
+        $.getJSON('https://api.flickr.com/services/rest/?method=' + $query, function(data)
+        {
+            var $totalPages = data.photos.pages;
+
+            //Clear image div
+            $("#images").empty();
+            //loop through images and generate html to display images
+            for(count=0; count < data.photos.photo.length; count++) {
                 var $id = data.photos.photo[count].id;
                 var $serverId = data.photos.photo[count].server;
                 var $farmId = data.photos.photo[count].farm;
                 var $secret = data.photos.photo[count].secret;
 
-                console.log($id + ' ' + $serverId + ' ' + $farmId + ' ' + $secret);
-
+                var $url = 'https://farm' + $farmId + '.staticflickr.com/' + $serverId + '/' + $id + '_' + $secret +'.jpg';
+                $( "<img>" ).attr( "src", $url ).appendTo( "#images" );
             }
-         });
 
-        e.preventDefault();
-    });
+            //Determine how many pages there are and create links
+            $pageCount = parseInt($perPage) % $totalPages;
 
-    function RenderPhotos($id, $serverId, $farmId, $secret)
-    {
+            $(".pagination").empty();
+            for(count=0; count < $pageCount; count++)
+            {
+                var $pageNo = count + 1;
+                $( "<a>" + $pageNo + " " + "</a>" ).attr("href", "#").appendTo( ".pagination" );
+            }
 
+        });
     };
 
+    /**
+     * Event listener to change page upon clicking new page number
+     */
+    $('.pagination').click(function(evt){
+        console.log("In event");
+        var $target = evt.target;
+        //Get page number that was clicked and then call RenderPhoto method to display photos for that page
+        var $newPage = $target.text;
+        console.log($newPage);
+        RenderPhoto($searchText, $perPage, parseInt($newPage.trim));
 
+        evt.preventDefault();
+    });
 }(jQuery));
 
