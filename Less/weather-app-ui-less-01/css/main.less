@@ -1,0 +1,23 @@
+.weather-display {
+	& > .forecast {
+		
+		& > div {
+			border-right: 1px solid #333;
+			float: left;
+			padding: 4px;
+			text-align: center;
+
+			& > .day {
+				font-weight: bold;
+			}
+
+			& > .temp {
+				font-size: 80%;
+			}
+		}
+
+		& > div:last-child {
+			border-right: none;
+		}
+	}
+}

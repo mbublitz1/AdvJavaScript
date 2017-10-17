@@ -6,7 +6,12 @@ html {font-size: 62.5%;
 
 *, *:before, *:after { box-sizing: inherit; }
 
-body {font-size: 16px; font-size: 1.6rem; } /* = 16px */
+body
+{
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding-left: 10%;
+} /* = 16px */
 
 header, main, footer {
     width: 100%;
@@ -14,20 +19,20 @@ header, main, footer {
 }
 
 /* Grids three column */
-[class*='col-'] {
+/*[class*='col-'] {
     float: left;
     display: block;
     margin: 0 4.255% 0 0;
     padding-right: 4.255%;
     padding-left: 4.255%;
-}
+}*/
 
-.col-3-3{width: 100%;}
-.col-2-3 {width: 65.2482%;}
-.col-1-3 {width: 30.4964%;}
+/*.col-3-3{width: 100%;}*/
+/*.col-2-3 {width: 65.2482%;}*/
+/*.col-1-3 {width: 30.4964%;}*/
 
-[class*='col']:last-of-type { margin-right: 0; }
-.gridfix {margin-right: 0;}
+/*[class*='col']:last-of-type { margin-right: 0; }*/
+/*.gridfix {margin-right: 0;}*/
 
 a:link a:visited { color: #999999; }
 a:hover a:active { color: #000000; }

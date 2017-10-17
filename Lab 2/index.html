@@ -1,0 +1,61 @@
+<!--<!doctype html>-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lab 1 - flickr Search</title>
+    <meta name="description" content="This is My boilerplate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/flickr.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+
+<body>
+<header class="clearfix">
+    <div class="container-fluid">
+        <h1>Search Flickr</h1>
+    </div>
+</header>
+
+<main>
+    <form class="search">
+        <div class="container form-inline">
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label for="searchText" class="control-label">Search: </label>
+                    <input type="text" id="searchText" class="form-control" name="searchText"/>
+                </div>
+                <div class="col-md-3 form-group">
+                    <label for="NumPages"> Photos per page: </label>
+                    <select title="perPage" name="perPage" class="form-control" required>
+                        <option value="0" selected="selected">10</option>
+                        <option value="1">40</option>
+                        <option value="2">80</option>
+                        <option value="3">100</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="images" class="clearfix">
+
+    </div>
+</main>
+
+<footer>
+    <div class="pagination col-md-10 clearfix">
+    </div>
+</footer>
+<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
