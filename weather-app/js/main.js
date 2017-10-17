@@ -15,20 +15,31 @@
     function displayWeather(data, $el){
         //var $loc = $('.weather-display .location');
         //Below shows how to use the element to find the location
-        var $loc = $el.find('.details>.location');
-        var $weatherdate  = $el.find('.details>.date');
-        var $condition = $el.find('.details>.conditions');
-        var $currentTemp = $el.find('.details>.temp');
-        var $sunRise = $el.find('.details>.sunrise');
-        var $sunSet = $el.find('.details>.sunset');
+        //When using templates, lines below can be removed.
+        // var $loc = $el.find('.details>.location');
+        // var $weatherdate  = $el.find('.details>.date');
+        // var $condition = $el.find('.details>.conditions');
+        // var $currentTemp = $el.find('.details>.temp');
+        // var $sunRise = $el.find('.details>.sunrise');
+        // var $sunSet = $el.find('.details>.sunset');
+
+        var returnData = {
+
+            location: data.location.city + ', ' + data.location.region,
+            date: data.lastBuildDate.split(' ').splice(0, 3).join(' '),
+            condition: data.item.condition.text,
+            temperature: data.item.condition.temp
+        },
+        //find an compilte the template
+        templateSource = $('#weather-template').html(),
+        templateFn = Handlebars.compile(templateSource);
+
+        $el.find('.current').html(templateFn(returnData));
+
         //TODO: complete variables for the other pieces of data
         //Display the data
         $el.removeClass('hidden');
 
-        $loc.text(data.location.city + ', ' + data.location.region);
-        $weatherdate.text(data.lastBuildDate);
-        $condition.text(data.item.condition.text);
-        $currentTemp.text(data.item.condition.temp);
 
     }
 
