@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/flickr.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="row">
+
+    <div class="col-lg-12">
+        <h1 class="page-header">Thumbnail Gallery</h1>
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Image One" data-caption="This is some dummy text for the first image, anything can go here really.." data-image="http://lorempixel.com/output/abstract-q-c-640-480-10.jpg" data-href="http://codepen.io" data-target="#image-gallery">
+                <img class="img-responsive" src="http://lorempixel.com/output/abstract-q-c-640-480-10.jpg" alt="Another alt text">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Image Two" data-caption="Second image description and speil, running out of words that I can think of. I thought my vocabulary was better than that." data-image="http://lorempixel.com/output/animals-q-c-640-480-9.jpg" data-href="http://jsfiddle.net" data-target="#image-gallery">
+                <img class="img-responsive" src="http://lorempixel.com/output/animals-q-c-640-480-9.jpg" alt="Another alt text">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Image Three" data-caption="My YouTube playlist is playing music I would literally never listen to." data-image="http://lorempixel.com/output/technics-q-c-640-480-9.jpg" data-href="http://google.com" data-target="#image-gallery">
+                <img class="img-responsive" src="http://lorempixel.com/output/technics-q-c-640-480-9.jpg" alt="Another alt text">
+            </a>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="image-gallery-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <img id="image-gallery-image" class="img-responsive" src="">
+                </div>
+                <div class="modal-footer">
+
+                    <div class="col-md-2 pull-left">
+                        <button type="button" class="btn btn-primary" id="show-previous-image"><i class="fa fa-arrow-left"></i></button>
+                    </div>
+
+                    <div class="col-md-6 pull-left" id="image-gallery-caption">
+                        This text will be overwritten by jQuery
+                    </div>
+
+                    <div class="col-md-2 pull-right">
+                        <button type="button" id="show-next-image" class="btn btn-default"><i class="fa fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="col-md-12" id="image-gallery-link">
+                        <a href="">I'll be changed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

@@ -58,7 +58,10 @@
                 var $secret = data.photos.photo[count].secret;
 
                 var $url = 'https://farm' + $farmId + '.staticflickr.com/' + $serverId + '/' + $id + '_' + $secret +'.jpg';
-                $( "<img>" ).attr( "src", $url ).appendTo( "#images" );
+                //$("<a></a>").attr("class", "thumbnail").attr("data-toggle", "modal").attr("data-target", ".image-modal-lg" ).appendTo("#images");
+                var html = $("<a href='#' class='thumbnail' data-toggle='modal' data-target='.image-modal-lg'>").append($("<img>").attr( "src", $url ));
+                //$( "#images" ).append(("<a>").attr("class", "thumbnail").attr("data-toggle", "modal").attr("data-target", ".image-modal-lg" )).append(( "<img>" ).attr( "src", $url ).attr("data-toggle", "modal").attr("data-target", ".image-gallery"));
+                $("#images").append(html);
             }
 
             //Determine how many pages there are and create links
@@ -68,10 +71,12 @@
             for(count=0; count < $pageCount; count++)
             {
                 var $pageNo = count + 1;
-                $( "<a>" + $pageNo + " " + "</a>" ).attr("href", "#").appendTo( ".pagination" );
+
+                $( "<li><a>" + $pageNo + " " + "</a></li>" ).attr("href", "#").appendTo( ".pagination" );
             }
 
         });
+
     };
 
     /**
@@ -81,7 +86,7 @@
         var $target = evt.target;
         //Get page number that was clicked and then call RenderPhoto method to display photos for that page
         var $newPage = $target.text;
-        RenderPhoto($searchText, $perPage, parseInt($newPage.trim));
+        RenderPhoto($searchText, $perPage, parseInt($newPage.trim()));
 
         evt.preventDefault();
     });

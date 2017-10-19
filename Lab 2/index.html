@@ -48,14 +48,47 @@
     <div id="images" class="clearfix">
 
     </div>
+    <div class="modal fade image-modal-lg" tabindex="-1" role="dialog" aria-labelledby="largeImageModal">
+        <div class="modal-dialog modal-lg" role="img">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Weather Help</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Enter the location of the place you'd like the weather for in the
+                        <code>location</code> field ... it's that easy!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer>
-    <div class="pagination col-md-10 clearfix">
+    <div class="text-center col-md-10 clearfix">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+
+            </ul>
+        </nav>
     </div>
 </footer>
-<script src="js/vendor/jquery-1.12.0.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<!-- Include the handlebars library -->
+<script src="js/vendor/handlebars-v4.0.5.js"></script>
+<!-- Templates -->
+<script type="text/x-handlebars-template" id="photo-info">
+    <div class="details">Title: <span class="title">{{title}}</span></div>
+    <div class="details">Description: <span class="description">{{description}}</span></div>
+</script>
+    <script src="js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
